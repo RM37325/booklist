@@ -1,0 +1,6 @@
+﻿text_id,text,primary_sentiment,strength,positive_score,neutral_score,negative_score,used_models,all_models_used
+0,とても良い一日でした！,positive,Strong,0.9971426427364349,0.0021610951771435793,0.0006962447514524683,"bert_finetuned_japanese_sentiment, koheiduck_bert_japanese_sentiment",False
+1,今日は少し疲れました。,negative,Strong,0.04609896626789123,0.05401069391518831,0.8998903036117554,"koheiduck_bert_japanese_sentiment, bert_japanese_sentiment",False
+2,特に何も感じません。,negative,Moderate,0.3598394541380306,0.07829819542045395,0.5618623748111228,"bert_finetuned_japanese_sentiment, koheiduck_bert_japanese_sentiment, bert_japanese_sentiment",True
+3,少し疲れたがたくさんの学びがあった。,positive,Strong,0.9340896308422089,0.062262753024697304,0.003647611360065639,"bert_finetuned_japanese_sentiment, koheiduck_bert_japanese_sentiment",False
+4,とても楽しかったがもう少し努力できたと思う。,positive,Strong,0.9580342769622803,0.034363233629846945,0.007602475467137992,"bert_finetuned_japanese_sentiment, koheiduck_bert_japanese_sentiment",False

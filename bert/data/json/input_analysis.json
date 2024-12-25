@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "total_texts": 5,
+    "models_used": [
+      "bert_japanese_sentiment",
+      "koheiduck_bert_japanese_sentiment",
+      "bert_finetuned_japanese_sentiment"
+    ]
+  },
+  "summary": {
+    "total": 5,
+    "sentiment_counts": {
+      "raw": {
+        "positive": 3,
+        "neutral": 0,
+        "negative": 2
+      },
+      "percentages": {
+        "positive": 60.0,
+        "neutral": 0.0,
+        "negative": 40.0
+      }
+    },
+    "detailed_counts": {
+      "raw": {
+        "positive": {
+          "Strong": 3,
+          "Moderate": 0,
+          "Weak": 0
+        },
+        "neutral": {
+          "Strong": 0,
+          "Moderate": 0,
+          "Weak": 0
+        },
+        "negative": {
+          "Strong": 1,
+          "Moderate": 1,
+          "Weak": 0
+        }
+      },
+      "percentages": {
+        "positive": {
+          "Strong": 60.0
+        },
+        "neutral": {},
+        "negative": {
+          "Strong": 20.0,
+          "Moderate": 20.0
+        }
+      }
+    }
+  },
+  "evaluations": [
+    {
+      "primary_sentiment": "positive",
+      "strength": "Strong",
+      "scores": {
+        "positive": 0.9971426427364349,
+        "neutral": 0.0021610951771435793,
+        "negative": 0.0006962447514524683
+      },
+      "used_models": [
+        "bert_finetuned_japanese_sentiment",
+        "koheiduck_bert_japanese_sentiment"
+      ],
+      "all_models_used": false,
+      "text": "とても良い一日でした！",
+      "text_id": 0
+    },
+    {
+      "primary_sentiment": "negative",
+      "strength": "Strong",
+      "scores": {
+        "positive": 0.04609896626789123,
+        "neutral": 0.05401069391518831,
+        "negative": 0.8998903036117554
+      },
+      "used_models": [
+        "koheiduck_bert_japanese_sentiment",
+        "bert_japanese_sentiment"
+      ],
+      "all_models_used": false,
+      "text": "今日は少し疲れました。",
+      "text_id": 1
+    },
+    {
+      "primary_sentiment": "negative",
+      "strength": "Moderate",
+      "scores": {
+        "positive": 0.3598394541380306,
+        "neutral": 0.07829819542045395,
+        "negative": 0.5618623748111228
+      },
+      "used_models": [
+        "bert_finetuned_japanese_sentiment",
+        "koheiduck_bert_japanese_sentiment",
+        "bert_japanese_sentiment"
+      ],
+      "all_models_used": true,
+      "text": "特に何も感じません。",
+      "text_id": 2
+    },
+    {
+      "primary_sentiment": "positive",
+      "strength": "Strong",
+      "scores": {
+        "positive": 0.9340896308422089,
+        "neutral": 0.062262753024697304,
+        "negative": 0.003647611360065639
+      },
+      "used_models": [
+        "bert_finetuned_japanese_sentiment",
+        "koheiduck_bert_japanese_sentiment"
+      ],
+      "all_models_used": false,
+      "text": "少し疲れたがたくさんの学びがあった。",
+      "text_id": 3
+    },
+    {
+      "primary_sentiment": "positive",
+      "strength": "Strong",
+      "scores": {
+        "positive": 0.9580342769622803,
+        "neutral": 0.034363233629846945,
+        "negative": 0.007602475467137992
+      },
+      "used_models": [
+        "bert_finetuned_japanese_sentiment",
+        "koheiduck_bert_japanese_sentiment"
+      ],
+      "all_models_used": false,
+      "text": "とても楽しかったがもう少し努力できたと思う。",
+      "text_id": 4
+    }
+  ]
+}
