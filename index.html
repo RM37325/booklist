@@ -25,7 +25,7 @@
       <h2>書評一覧</h2> 
       <select id="book-selector" onchange="loadReviews(this.value)"> 
         <option value="">本を選択してください</option> 
-        <option value="output">test a</option> 
+        <option value="test_a">test a</option> 
         <option value="test_b">test b</option> 
         <option value="test_c">test c</option> 
       </select> 
@@ -35,6 +35,10 @@
         <p id="average-sentiment"></p> 
         <p id="average-strength"></p> 
         <p id="average-scores"></p> 
+      </div> 
+      <div id="debug-output"> 
+        <h3>デバッグ情報</h3> 
+        <pre id="debug-log"></pre> 
       </div> 
     </section> 
  
@@ -66,21 +70,27 @@
  
   <script> 
     async function loadReviews(fileId) { 
+    const debugLog = document.getElementById('debug-log'); 
+    debugLog.textContent = `開始: ファイルID = ${fileId}\n`;
+
     if (!fileId) { 
         document.getElementById('review-list').innerHTML = 'ファイルが選択されていません。'; 
+        debugLog.textContent += 'エラー: ファイルが選択されていません。\n';
         return; 
     } 
     const url = `https://raw.githubusercontent.com/RM37325/booklist/main/bert/data/csv/${fileId}.csv`; 
+    debugLog.textContent += `URL: ${url}\n`;
     try { 
         const response = await fetch(url); 
         if (!response.ok) { 
             throw new Error('ネットワークエラー'); 
         } 
         const text = await response.text(); 
+        debugLog.textContent += `取得データ:\n${text}\n`;
+
         if (!text.trim()) { 
             throw new Error('空のファイル'); 
         } 
-        console.log(text); // CSVデータ確認用 
  
         const rows = text.split('\n').slice(1); // ヘッダーを除外 
         const reviewList = document.getElementById('review-list'); 
@@ -114,10 +124,10 @@
     } catch (error) { 
         console.error('エラー:', error); 
         document.getElementById('review-list').innerHTML = 'データの取得に失敗しました。'; 
+        debugLog.textContent += `エラー: ${error.message}\n`;
     } 
     } 
  
   </script> 
 </body> 
 </html>
-
