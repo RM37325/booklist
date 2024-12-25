@@ -25,7 +25,7 @@
       <h2>書評一覧</h2>
       <select id="book-selector">
         <option value="">本を選択してください</option>
-        <option value="1q1HMhVSi345uWkxensNoA8ksOXaOu-kz">test a</option>
+        <option value="output.csv">test a</option>
         <option value="2HIJKLM67890">test b</option>
         <option value="3QRSTUV23456">test c</option>
       </select>
@@ -66,7 +66,7 @@
 
   <script>
     async function loadReviews(fileId) {
-    const url = `https://drive.google.com/uc?id=${fileId}`;
+    const url = `https://raw.githubusercontent.com/RM37325/booklist/refs/heads/main/bert/data/csv/${fileId}`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -113,5 +113,3 @@
   </script>
 </body>
 </html>
-
-  
