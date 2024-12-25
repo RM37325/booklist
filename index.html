@@ -66,14 +66,20 @@
  
   <script> 
     async function loadReviews(fileId) { 
-    if (!fileId) return; // ファイルIDが空なら何もしない
+    if (!fileId) { 
+        document.getElementById('review-list').innerHTML = 'ファイルが選択されていません。'; 
+        return; 
+    } 
     const url = `https://raw.githubusercontent.com/RM37325/booklist/main/bert/data/csv/${fileId}.csv`; 
     try { 
         const response = await fetch(url); 
         if (!response.ok) { 
-        throw new Error('ネットワークエラー'); 
+            throw new Error('ネットワークエラー'); 
         } 
         const text = await response.text(); 
+        if (!text.trim()) { 
+            throw new Error('空のファイル'); 
+        } 
         console.log(text); // CSVデータ確認用 
  
         const rows = text.split('\n').slice(1); // ヘッダーを除外 
@@ -114,3 +120,4 @@
   </script> 
 </body> 
 </html>
+
