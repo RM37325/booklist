@@ -106,7 +106,7 @@
         const columns = row.split(','); 
         if (columns.length >= 6) { // 列数チェック 
             const reviewItem = document.createElement('li'); 
-            reviewItem.textContent = `${columns[0]+1} - 感情: ${columns[2]}, 強度: ${columns[3]}`; 
+            reviewItem.textContent = `感情: ${columns[2]}, 強度: ${columns[3]}, テキスト: ${columns[1]}`; 
             reviewList.appendChild(reviewItem); 
  
             sentiments.push(columns[2]); 
