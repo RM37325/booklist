@@ -106,14 +106,14 @@
         const columns = row.split(','); 
         if (columns.length >= 6) { // 列数チェック 
             const reviewItem = document.createElement('li'); 
-            reviewItem.textContent = `${columns[0]} - 感情: ${columns[1]}, 強度: ${columns[2]}`; 
+            reviewItem.textContent = `${columns[0]+1} - 感情: ${columns[2]}, 強度: ${columns[3]}`; 
             reviewList.appendChild(reviewItem); 
  
-            sentiments.push(columns[1]); 
-            strengths.push(columns[2]); 
-            positiveScores.push(parseFloat(columns[3])); 
-            neutralScores.push(parseFloat(columns[4])); 
-            negativeScores.push(parseFloat(columns[5])); 
+            sentiments.push(columns[2]); 
+            strengths.push(columns[3]); 
+            positiveScores.push(parseFloat(columns[4])); 
+            neutralScores.push(parseFloat(columns[5])); 
+            negativeScores.push(parseFloat(columns[6])); 
         } 
         }); 
  
