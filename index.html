@@ -92,18 +92,40 @@
             throw new Error('空のファイル');  
         }  
   
-        const rows = text.split('\n').slice(1, 4); // ヘッダーを除外し3行のみ取得  
+        const rows = text.split('\n').slice(1); // ヘッダーを除外し全行取得  
         const reviewList = document.getElementById('review-list');  
         reviewList.innerHTML = '';  
-  
-        rows.forEach(row => {  
+
+        let sentiments = []; 
+        let strengths = []; 
+        let positiveScores = []; 
+        let neutralScores = []; 
+        let negativeScores = []; 
+ 
+        rows.slice(0, 3).forEach(row => {  
         const columns = row.split(',');  
         if (columns.length >= 6) { // 列数チェック  
             const reviewItem = document.createElement('li');  
             reviewItem.textContent = `感情: ${columns[2]}, 強度: ${columns[3]}, テキスト: ${columns[1]}`;  
-            reviewList.appendChild(reviewItem);  
+            reviewList.appendChild(reviewItem);
         }  
         });  
+
+        rows.forEach(row => {  
+        const columns = row.split(',');  
+        if (columns.length >= 6) { // 列数チェック  
+            sentiments.push(columns[2]); 
+            strengths.push(columns[3]); 
+            positiveScores.push(parseFloat(columns[4])); 
+            neutralScores.push(parseFloat(columns[5])); 
+            negativeScores.push(parseFloat(columns[6])); 
+        }  
+        });  
+
+        const average = arr => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2); 
+        document.getElementById('average-sentiment').textContent = `平均感情: ${sentiments[0]}`; 
+        document.getElementById('average-strength').textContent = `平均強度: ${strengths[0]}`; 
+        document.getElementById('average-scores').textContent = `スコア - ポジティブ: ${average(positiveScores)}, ニュートラル: ${average(neutralScores)}, ネガティブ: ${average(negativeScores)}`; 
   
     } catch (error) {  
         console.error('エラー:', error);  
